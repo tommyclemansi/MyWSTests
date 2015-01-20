@@ -201,7 +201,12 @@
 
 		<profile>
 			<!-- this uses a custom token -->
-			<!-- requirement is: higher WLS version -Dweblogic.wsee.policy.LoadFromClassPathEnabled=true 
+			<!-- requirement is: higher WLS version -Dweblogic.wsee.policy.LoadFromClassPathEnabled=true
+			updated:
+			 setDomainEnv.cmd: #159
+			   set POST_CLASSPATH=C:\Users\tcleyman\git\EJBWS_tcleyman\EJBWS_tcleyman\mypolicy.jar
+			   +260 -Dweblogic.wsee.policy.LoadFromClassPathEnabled=true
+			 
 				+ put jar in WLS CLASSPATH -->
 			<id>Custom</id>
 			<properties>

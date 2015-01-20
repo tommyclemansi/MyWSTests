@@ -5,6 +5,8 @@ script assumes that the WLS Admin Server is up and running
 '''
 
 '''
+Need to fix this script in order to fix startup issue .. 
+
 calling this script:
 1. adapt env variables
 2. invoke setDomainEnv.cmd
@@ -167,8 +169,8 @@ print function_Authenticator()
 print 'configuring SAML Identity Asserter ...'
 print function_IdentityAsserter()
 
-print 'restarting server'
-print function_Restart()
+#print 'restarting server'
+#print function_Restart()
 
 print 'script finished successfully'
 print 'exiting ...'

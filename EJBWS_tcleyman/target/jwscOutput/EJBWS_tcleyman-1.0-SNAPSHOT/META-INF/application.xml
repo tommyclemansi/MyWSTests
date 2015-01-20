@@ -4,4 +4,7 @@
   <module>
     <ejb>tcleyman/MyJMSWS.jar</ejb>
   </module>
+  <module>
+    <ejb>tcleyman/MyJMSWS1.jar</ejb>
+  </module>
 </application>

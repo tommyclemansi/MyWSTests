@@ -4,6 +4,9 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
+import weblogic.jws.Policies;
+import weblogic.jws.Policy;
+
 import com.oracle.webservices.api.jms.JMSTransportService;
 import com.oracle.webservices.api.jms.JMSDestinationType;
 import com.oracle.webservices.api.jms.JMSMessageType;
@@ -20,7 +23,9 @@ import com.oracle.webservices.api.jms.JMSDeliveryMode;
 // default: replyToName = "com.oracle.webservices.api.jms.ResponseQueue",
 // removed the JMSTransportService, ported that tho the pom file
 
-
+@Policies({
+    @Policy(uri="policy:Wssp1.2-2007-Saml1.1-Bearer-Wss1.1.xml")
+    })
 @WebService
 //@JMSTransportService(targetService = "MyWS", destinationType = JMSDestinationType.QUEUE,messageType = JMSMessageType.TEXT, deliveryMode = JMSDeliveryMode.NON_PERSISTENT, priority = 4, mdbPerDestination = true)
 //@JMSTransportService
