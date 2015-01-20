@@ -20,8 +20,21 @@ import com.oracle.webservices.api.jms.JMSDeliveryMode;
 // default: replyToName = "com.oracle.webservices.api.jms.ResponseQueue",
 // removed the JMSTransportService, ported that tho the pom file
 
+/*
+ *   String name() default "";
+  
+  String targetNamespace() default "";
+  
+  String serviceName() default "";
+  
+  String portName() default "";
+  
+  String wsdlLocation() default "";
+  
+  String endpointInterface() default "";
+ */
 
-@WebService
+@WebService(serviceName="MyJMSWSService",portName="MyJMSWSPort")
 //@JMSTransportService(targetService = "MyWS", destinationType = JMSDestinationType.QUEUE,messageType = JMSMessageType.TEXT, deliveryMode = JMSDeliveryMode.NON_PERSISTENT, priority = 4, mdbPerDestination = true)
 //@JMSTransportService
 @Stateless

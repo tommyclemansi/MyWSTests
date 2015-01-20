@@ -68,6 +68,8 @@
 								<contextPath>MyJMSWS</contextPath>
 								<file>${JWSFile}</file>
 								<generateWsdl>true</generateWsdl>
+					            <serviceUri>MyJMSWSService</serviceUri>
+                                <portName>MyJMSWSPort</portName>
 							</jws>
 							<verbose>true</verbose>
 						</configuration>
@@ -100,8 +102,6 @@
 								</jmstransportservice>
 								<transportType>
 									<type>WLJMSTransport</type>
-									<serviceUri>MyJMSWS</serviceUri>
-									<portName>MyJMSWSPort</portName>
 								</transportType>
 							</jws>
 							<verbose>true</verbose>
@@ -160,6 +160,7 @@
 							<targets>AdminServer</targets>
 							<verbose>true</verbose>
 							<name>${project.build.finalName}</name>
+							<upload>true</upload>
 						</configuration>
 					</execution>
 					<execution>
@@ -176,6 +177,7 @@
 							<targets>AdminServer</targets>
 							<verbose>true</verbose>
 							<name>${project.build.finalName}_JMS</name>
+							<upload>true</upload>
 						</configuration>
 					</execution>
 					<!-- Stop the application in the pre-integration-test phase -->

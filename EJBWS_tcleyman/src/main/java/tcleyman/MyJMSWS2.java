@@ -26,7 +26,7 @@ import com.oracle.webservices.api.jms.JMSDeliveryMode;
 @Policies({
     @Policy(uri="policy:Wssp1.2-2007-Saml1.1-Bearer-Wss1.1.xml")
     })
-@WebService
+@WebService(serviceName="MyJMSWSService",portName="MyJMSWSPort")
 //@JMSTransportService(targetService = "MyWS", destinationType = JMSDestinationType.QUEUE,messageType = JMSMessageType.TEXT, deliveryMode = JMSDeliveryMode.NON_PERSISTENT, priority = 4, mdbPerDestination = true)
 //@JMSTransportService
 @Stateless
