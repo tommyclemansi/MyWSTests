@@ -68,9 +68,7 @@
 								<contextPath>MyJMSWS</contextPath>
 								<file>${JWSFile}</file>
 								<generateWsdl>true</generateWsdl>
-					            <serviceUri>MyJMSWSService</serviceUri>
-                                <portName>MyJMSWSPort</portName>
-							</jws>
+					        </jws>
 							<verbose>true</verbose>
 						</configuration>
 					</execution>
