@@ -69,7 +69,7 @@ def function_Connect():
     except Exception, e:
         print e 
         print "Error while connecting!, trying to start AdminServer"
-        function_StartServer()
+        #function_StartServer()
         dumpStack()
         raise     
     
@@ -155,11 +155,11 @@ function_Info()
 print 'connecting ...'
 print function_Connect()
 
-print 'destroy existing config'
-print function_DestroyExisting()
+#print 'destroy existing config'
+#print function_DestroyExisting()
 
-print 'restarting server'
-print function_Restart()
+#print 'restarting server'
+#print function_Restart()
 
 print 'configuring SAML Authenticator ....'
 print function_Authenticator()
