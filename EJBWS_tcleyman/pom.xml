@@ -18,6 +18,9 @@
 		<wls_version>12.1.3-0-0</wls_version>
 	</properties>
 
+	<!-- Note that this uses an additional property JWSFile the property is 
+		set through profile. -->
+
 	<dependencies>
 		<dependency>
 			<groupId>javax</groupId>
@@ -33,7 +36,10 @@
 		</dependency>
 	</dependencies>
 
+	<!-- http://docs.oracle.com/middleware/1212/wls/WLPRG/maven.htm#WLPRG734 -->
+
 	<build>
+
 		<!-- added by tcleyman using wls plugin -->
 		<plugins>
 			<plugin>
@@ -45,8 +51,7 @@
 					<middlewareHome>${wls_dir}</middlewareHome>
 				</configuration>
 				<executions>
-					<!-- first for normal transport -->
-					<!-- http://docs.oracle.com/middleware/1212/wls/WLPRG/maven.htm#WLPRG734 -->
+					<!-- normal JWS, HTTP endpoint -->
 					<execution>
 						<id>jwsc_tom</id>
 						<phase>generate-resources</phase>
@@ -61,13 +66,14 @@
 							<debug>true</debug>
 							<jws>
 								<contextPath>MyJMSWS</contextPath>
-								<file>tcleyman/MyJMSWS.java</file>
+								<file>${JWSFile}</file>
 								<generateWsdl>true</generateWsdl>
 							</jws>
 							<verbose>true</verbose>
 						</configuration>
 					</execution>
-					<!-- now for JMS transport -->
+
+					<!-- using JMS endpoint -->
 					<execution>
 						<id>jwsc_tom_JMS</id>
 						<phase>generate-resources</phase>
@@ -83,7 +89,7 @@
 							<jws>
 								<contextPath>MyJMSWS_JMS</contextPath><!-- need diff context path 
 									then above -->
-								<file>tcleyman/MyJMSWS.java</file>
+								<file>${JWSFile}</file>
 								<generateWsdl>true</generateWsdl>
 								<jmstransportservice>
 									<destinationType>QUEUE</destinationType>
@@ -101,8 +107,9 @@
 							<verbose>true</verbose>
 						</configuration>
 					</execution>
-
-					<!-- first undeploy, then deploy -->
+					
+					
+					<!-- undeployments -->
 					<execution>
 						<id>wls-undeploy_normal</id>
 						<phase>pre-integration-test</phase>
@@ -137,6 +144,8 @@
 							<name>${project.build.finalName}_JMS</name>
 						</configuration>
 					</execution>
+					
+					<!-- deployments -->
 					<execution>
 						<id>wls-deploy</id>
 						<phase>pre-integration-test</phase>
@@ -178,7 +187,34 @@
 
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>Normal</id>
+			<properties>
+				<JWSFile>tcleyman/MyJMSWS.java</JWSFile>
+			</properties>
+
+		</profile>
+
+		<profile>
+			<!-- this uses a custom token -->
+			<!-- requirement is: higher WLS version -Dweblogic.wsee.policy.LoadFromClassPathEnabled=true 
+				+ put jar in WLS CLASSPATH -->
+			<id>Custom</id>
+			<properties>
+				<JWSFile>tcleyman/MyJMSWS1.java</JWSFile>
+			</properties>
+
+		</profile>
+		<profile>
+			<id>Canned</id>
+			<properties>
+				<JWSFile>tcleyman/MyJMSWS2.java</JWSFile>
+			</properties>
+
+		</profile>
+	</profiles>
 </project>

@@ -1,13 +1,12 @@
 '''
 script created by tcleyman
 Need to configure this one
-'''
 
+aim is to configure identity asserters 
+for /MyJMSWS/MyJMSWSService?WSDL
+for //MyJMSWS_JMS/MyJMSWS?WSDL 
+port jms:jndi:com.oracle.webservices.api.jms.RequestQueue?targetService=tcleyman.MyJMSWSService&jndiURL=t3://localhost:7001
 '''
-imports
-'''
-
-import sys
 
 #Conditionally import wlstModule only when script is executed with jython
 if __name__ == '__main__': 
