@@ -38,8 +38,8 @@ import com.oracle.webservices.api.jms.JMSDeliveryMode;
 //@WebService(serviceName="MyJMSWSService",portName="MyJMSWSPort")
 //@JMSTransportService(targetService = "MyWS", destinationType = JMSDestinationType.QUEUE,messageType = JMSMessageType.TEXT, deliveryMode = JMSDeliveryMode.NON_PERSISTENT, priority = 4, mdbPerDestination = true)
 //@JMSTransportService
-@Stateless
-@LocalBean
+//@Stateless
+//@LocalBean
 public class MyJMSWS1 {
 
     /**
