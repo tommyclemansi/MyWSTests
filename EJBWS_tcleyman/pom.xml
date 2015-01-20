@@ -64,11 +64,27 @@
 								${project.build.directory}/jwscOutput/${project.build.finalName}</destDir>
 							<listfiles>true</listfiles>
 							<debug>true</debug>
-							<jws>
+							<!-- module does not work, implying that WS with Interfaces do not work..
+							[ERROR] Failed to execute goal com.oracle.weblogic:weblogic-maven-plugin:12.1.3-0-0:ws-jwsc (jwsc_tom) on project EJBWS_tcleyman: ws-jwsc goal failed: file must not be null. 
+							 -->
+							<!--  <module>
+							<contextPath>MyJMSWS</contextPath>
+							<generateWsdl>true</generateWsdl>
+							<FileSet>
+							<srcDir>src/main/java</srcDir>
+							<sourceIncludes>${JWSFile}</sourceIncludes>
+							</FileSet>
+							-->
+							<!--  <sourceIncludes>**/*.java</sourceIncludes>-->
+							
+						
+						<jws>
 								<contextPath>MyJMSWS</contextPath>
 								<file>${JWSFile}</file>
 								<generateWsdl>true</generateWsdl>
 					        </jws>
+					        <!--  </module>-->
+
 							<verbose>true</verbose>
 						</configuration>
 					</execution>

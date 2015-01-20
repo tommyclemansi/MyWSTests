@@ -1,3 +1,6 @@
+/*******************************************************************************
+ * Copyright (c) 2015 Tom Cleymans
+ *******************************************************************************/
 package tcleyman;
 
 import javax.ejb.LocalBean;
@@ -28,7 +31,10 @@ import com.oracle.webservices.api.jms.JMSDeliveryMode;
 @Policies({
     @Policy(uri="SimpleSaml2.xml")
     })
-@WebService(serviceName="MyJMSWSService",portName="MyJMSWSPort",targetNamespace="http://tcleyman/",endpointInterface="tcleyman.MyJMSWSI")
+//[ERROR] Failed to execute goal com.oracle.weblogic:weblogic-maven-plugin:12.1.3-0-0:ws-jwsc (jwsc_tom) on project EJBWS_tcleyman: ws-jwsc goal failed: weblogic.wsee.tools.WsBuildException: Error processing JAX-WS web services: runtime modeler error: class: tcleyman.MyJMSWSI could not be found ->
+//@WebService(serviceName="MyJMSWSService",portName="MyJMSWSPort",targetNamespace="http://tcleyman/",endpointInterface="tcleyman.MyJMSWSI")
+@WebService(serviceName="MyJMSWSService",portName="MyJMSWSPort")
+
 //@WebService(serviceName="MyJMSWSService",portName="MyJMSWSPort")
 //@JMSTransportService(targetService = "MyWS", destinationType = JMSDestinationType.QUEUE,messageType = JMSMessageType.TEXT, deliveryMode = JMSDeliveryMode.NON_PERSISTENT, priority = 4, mdbPerDestination = true)
 //@JMSTransportService
